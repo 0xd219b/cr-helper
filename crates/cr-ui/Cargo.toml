@@ -1,0 +1,18 @@
+[package]
+name = "cr-ui"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "TUI library for cr-helper - Code Review Helper"
+
+[dependencies]
+cr-core = { workspace = true }
+
+ratatui = { workspace = true }
+crossterm = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+syntect = { workspace = true }
+
+[dev-dependencies]
+pretty_assertions = "1.4"

@@ -1,0 +1,67 @@
+[workspace]
+resolver = "2"
+
+members = [
+    "crates/cr-cli",
+    "crates/cr-core",
+    "crates/cr-ui",
+    "crates/cr-integration",
+    "crates/cr-storage",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/0xd219b/cr-helper"
+authors = ["cr-helper contributors"]
+
+[workspace.dependencies]
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+toml = "0.8"
+
+# Time
+chrono = { version = "0.4", features = ["serde"] }
+
+# UUID
+uuid = { version = "1.6", features = ["v4", "serde"] }
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# CLI
+clap = { version = "4.5", features = ["derive", "env"] }
+
+# TUI
+ratatui = "0.29"
+crossterm = "0.28"
+
+# Syntax highlighting
+syntect = { version = "5.2", default-features = false, features = ["default-syntaxes", "default-themes", "regex-onig"] }
+
+# Directories
+directories = "5.0"
+dirs = "5.0"
+
+# Hashing
+blake3 = "1.5"
+
+# Workspace crates
+cr-core = { path = "crates/cr-core" }
+cr-cli = { path = "crates/cr-cli" }
+cr-ui = { path = "crates/cr-ui" }
+cr-integration = { path = "crates/cr-integration" }
+cr-storage = { path = "crates/cr-storage" }
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

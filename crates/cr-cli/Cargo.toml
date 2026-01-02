@@ -1,0 +1,42 @@
+[package]
+name = "cr-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "CLI tool for cr-helper - Code Review Helper"
+
+[[bin]]
+name = "cr-helper"
+path = "src/main.rs"
+
+[dependencies]
+cr-core = { workspace = true }
+cr-ui = { workspace = true }
+cr-integration = { workspace = true }
+cr-storage = { workspace = true }
+
+clap = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+toml = { workspace = true }
+directories = { workspace = true }
+dirs = { workspace = true }
+chrono = { workspace = true }
+
+# Interactive prompts
+dialoguer = "0.11"
+console = "0.15"
+
+# Progress display
+indicatif = "0.17"
+
+# Colored output
+colored = "2.1"
+
+[dev-dependencies]
+assert_cmd = "2.0"
+predicates = "3.0"
+tempfile = "3.8"
